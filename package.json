@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-file-manager",
+  "version": "1.0.0",
+  "description": "simple cli file-manager",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ITboo/nodejs-file-manager.git"
+  },
+  "keywords": [
+    "cli",
+    "nodejs",
+    "file",
+    "rsschool"
+  ],
+  "author": "Hanna Parfenava",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ITboo/nodejs-file-manager/issues"
+  },
+  "homepage": "https://github.com/ITboo/nodejs-file-manager#readme"
+}
