@@ -1,7 +1,7 @@
 import {createInterface} from 'node:readline/promises';
 import { args } from "./src/helpers/argsHelp.js";
 import { currDir } from "./src/helpers/currentDir.js";
-import { 
+import {
   cd,
   up,
   ls,
@@ -14,7 +14,11 @@ import {
   calculateHash,
   compress,
   decompress,
-  os
+  osEOL,
+  cpuInfo,
+  homeDirectory,
+  userName,
+  architecture
  } from './src/handlers/commands.js';
 
 //Greeting
@@ -30,6 +34,8 @@ const rl = createInterface({
 
 rl.on('line',  async (input) => {
   switch (input.trim()) { //trim() удаляет пробельные символы с начала и конца строки.
+
+    //NAV
     case 'ls':
       ls();
       break;
@@ -40,6 +46,24 @@ rl.on('line',  async (input) => {
       cd();
       break;
 
+    //OS
+    case 'os --EOL':
+      osEOL();
+      break;
+    case 'os --cpus':
+      cpuInfo();
+      break;
+    case 'os --homedir':
+      homeDirectory();
+      break;
+    case 'os --username':
+      userName();
+      break;
+    case 'os --architecture':
+      architecture();
+      break;
+
+    //FS
       case 'add':
         add();
         break;
@@ -61,6 +85,7 @@ rl.on('line',  async (input) => {
           case 'hash':
             calculateHash();
             break;
+            //ZIP
           case 'compress':
             compress();
             break;

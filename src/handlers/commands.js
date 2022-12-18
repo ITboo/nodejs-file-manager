@@ -10,7 +10,7 @@ export { cp } from './fs/cp.js';
 export { mv } from './fs/mv.js';
 export { rm } from './fs/rm.js';
 //OS
-export { os } from './os/os.js';
+export { osEOL, cpuInfo, homeDirectory, userName, architecture } from './os/os.js';
 //HASH
 export { calculateHash } from './hash/hash.js';
 //ZIP
