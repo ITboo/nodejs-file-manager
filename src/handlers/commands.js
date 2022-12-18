@@ -16,4 +16,6 @@ export { calculateHash } from './hash/hash.js';
 //ZIP
 export{ compress } from './zip/compress.js';
 export { decompress } from './zip/decompress.js';
+//HELP
+export { printHelp } from './help.js'
 
