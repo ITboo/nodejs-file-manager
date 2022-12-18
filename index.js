@@ -47,6 +47,10 @@ rl.on('line', async (input) => {
     case 'cd':
       cd();
       break;
+    case '.exit':
+       console.log(`Thank you for using File Manager, ${username}, goodbye!`);
+       process.exit(0);
+      break;
 
     //OS
     case 'os --EOL':
@@ -97,13 +101,14 @@ rl.on('line', async (input) => {
     case 'decomress':
       decompress();
       break;
-      
+
     //HELP
     case 'help':
       printHelp();
       break;
-    /*default:
-        console.log('Invalid input');*/
+
+    default:
+      console.log('Invalid input');
   }
 })
 rl.prompt();
@@ -112,7 +117,3 @@ rl.on('SIGINT', () => {
   console.log(`Thank you for using File Manager, ${username}, goodbye!`);
   process.exit(0);
 });
-
-/* rl.on('.exit', () =>{
-   console.log(`Thank you for using File Manager, ${username}, goodbye!`);
-   process.exit(0);});*/
