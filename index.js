@@ -9,7 +9,7 @@ import {
   cat,
   cp,
   mv,
-  rm,
+  remove,
   rn,
   calculateHash,
   compress,
@@ -83,7 +83,7 @@ rl.on('line', async (input) => {
       mv();
       break;
     case 'rm':
-      rm();
+      remove();
       break;
     case 'rn':
       rn();

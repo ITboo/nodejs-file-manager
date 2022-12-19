@@ -8,7 +8,7 @@ export { add } from './fs/add.js';
 export { rn } from './fs/rn.js';
 export { cp } from './fs/cp.js';
 export { mv } from './fs/mv.js';
-export { rm } from './fs/rm.js';
+export { remove } from './fs/rm.js';
 //OS
 export { osEOL, cpuInfo, homeDirectory, userName, architecture } from './os/os.js';
 //HASH
