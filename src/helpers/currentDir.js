@@ -1,3 +1,3 @@
-export const currDir=() => {
-    console.info(`You are currently in ${process.cwd()}`)
-  };
+export const currDir = async () => {
+  console.info(`You are currently in ${process.cwd()}`)
+};

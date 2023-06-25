@@ -1,6 +1,17 @@
-export const args = Object.fromEntries(
-    process.argv.slice(2).map((arg) => {
-      const [key, value] = arg.split('=')
-      return [key, value]
-    })
-  );
+import { DEFAULT_USERNAME, USERNAME } from "../common/constants.js";
+
+export const getUsername = async () => {
+  let username;
+  const argsList = process.argv.slice(2);
+  const argument = `--${USERNAME}=`;
+
+  argsList.forEach(arg => {
+      if (arg.startsWith(argument)) {
+          username = arg.slice(argument.length);
+          if(!username){
+            username = DEFAULT_USERNAME
+          };
+      };
+  });
+  return username;
+};
