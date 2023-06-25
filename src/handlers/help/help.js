@@ -1,4 +1,4 @@
-export const printHelp = () =>{
+export const printHelp = async () =>{
     console.log(`${(`HELP`)}
     up - Go upper from current directory;
     cd - Go to dedicated folder from current directory;

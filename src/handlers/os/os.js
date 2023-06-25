@@ -1,5 +1,5 @@
 import {EOL,cpus,homedir,userInfo, arch} from "os";
-import { currDir } from "../../helpers/currentDir.js";
+import { currDir } from "../../utils/currentDir.js";
 
 export const osEOL = () => {
    console.log(JSON.stringify(EOL));

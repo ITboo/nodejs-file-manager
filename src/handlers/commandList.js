@@ -14,8 +14,8 @@ export { osEOL, cpuInfo, homeDirectory, userName, architecture } from './os/os.j
 //HASH
 export { calculateHash } from './hash/hash.js';
 //ZIP
-export{ compress } from './zip/compress.js';
+export { compress } from './zip/compress.js';
 export { decompress } from './zip/decompress.js';
 //HELP
-export { printHelp } from './help.js'
+export { printHelp } from './help/help.js';
 

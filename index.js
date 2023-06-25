@@ -1,123 +1,40 @@
 import { createInterface } from 'node:readline/promises';
-import { sayHi } from './src/helpers/greeting.js';
-import { currDir } from './src/helpers/currentDir.js';
+import { sayHi, sayBye } from './src/utils/greeting.js';
+import { currDir } from './src/utils/currentDir.js';
+import { parseCommand } from './src/handlers/commandParser.js';
+import { runCommand } from './src/handlers/commandHandler.js';
 
-//TODO: refactor Interface
 const rl = createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
 const app = async () => {
-await sayHi();
-await currDir();
-}
+  await sayHi();
+  await currDir();
+
+  rl.prompt();
+
+  rl.on('line', async (input) => {
+    const trimmed = input.trim();
+    const command = await parseCommand(trimmed);
+    try {
+      await runCommand(command);
+    } catch (err) {
+      console.log(err)
+    }
+    await currDir();
+    rl.prompt();
+  });
+
+  rl.on('SIGINT', async () => {
+    rl.close();
+  });
+
+  rl.on('close', async () => {
+    await sayBye();
+    process.exit(0);
+  });
+};
 
 await app();
-
-
-/*
-import {
-  cd,
-  up,
-  ls,
-  add,
-  cat,
-  cp,
-  mv,
-  remove,
-  rn,
-  calculateHash,
-  compress,
-  decompress,
-  osEOL,
-  cpuInfo,
-  homeDirectory,
-  userName,
-  architecture,
-  printHelp
-} from './src/handlers/commands.js';
-
-rl.on('line', async (input) => {
-  switch (input.trim()) { //trim() удаляет пробельные символы с начала и конца строки.
-
-    //NAV
-    case 'ls':
-      ls();
-      break;
-    case 'up':
-      up();
-      break;
-    case 'cd':
-      cd();
-      break;
-    case '.exit':
-       console.log(`Thank you for using File Manager, ${username}, goodbye!`);
-       process.exit(0);
-      break;
-
-    //OS
-    case 'os --EOL':
-      osEOL();
-      break;
-    case 'os --cpus':
-      cpuInfo();
-      break;
-    case 'os --homedir':
-      homeDirectory();
-      break;
-    case 'os --username':
-      userName();
-      break;
-    case 'os --architecture':
-      architecture();
-      break;
-
-    //FS
-    case 'add':
-      add();
-      break;
-    case 'cat':
-      cat();
-      break;
-    case 'cp':
-      cp();
-      break;
-    case 'mv':
-      mv();
-      break;
-    case 'rm':
-      remove();
-      break;
-    case 'rn':
-      rn();
-      break;
-
-    //HASH
-    case 'hash':
-      calculateHash();
-      break;
-
-    //ZIP
-    case 'compress':
-      compress();
-      break;
-    case 'decomress':
-      decompress();
-      break;
-
-    //HELP
-    case 'help':
-      printHelp();
-      break;
-
-    default:
-      console.log('Invalid input');
-  }
-})
-rl.prompt();
-//обработка ctrl+c
-rl.on('SIGINT', () => {
-  console.log(`Thank you for using File Manager, ${username}, goodbye!`);
-  process.exit(0);
-});*/

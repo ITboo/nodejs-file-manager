@@ -1,7 +1,7 @@
 import { rm } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { errorMsg } from '../../helpers/error.js';
+import { errorMsg } from '../../utils/error.js';
 
 
 const __filename = fileURLToPath(import.meta.url);
