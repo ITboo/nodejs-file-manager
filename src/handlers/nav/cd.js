@@ -1,11 +1,21 @@
-//Go to dedicated folder from current directory
-import { currDir } from "../../utils/currentDir.js";
+import os from 'os';
+import path from 'path';
+import { doesExist } from '../../utils/asserts.js';
+import { errorMsg } from '../../utils/error.js';
 
-export const cd = async (dirPath) =>{
-    try {
-        process.chdir(dirPath);
-        currDir();
-      } catch (error) {
-        console.error('Operation failed');
-      };
-    };
+export const cd = async (cwd, paths) => {
+  try {
+    const newCwd = path.join(cwd, paths.join(' '));
+    const pathDoesExist = await doesExist(newCwd);
+    if (pathDoesExist) {
+      process.chdir(newCwd);
+      return newCwd;
+    } else {
+      console.log(`No such directory ${newCwd} exists.`);
+      return cwd;
+    }
+  } catch (error) {
+  console.log(error)
+  }
+
+};

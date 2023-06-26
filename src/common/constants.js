@@ -16,6 +16,7 @@ export {
 const LS = 'ls';
 const UP = 'up';
 const CD = 'cd';
+const EXIT = '.exit';
 //HELP
 const HELP = 'help';
 //HASH
@@ -31,4 +32,11 @@ const MV = 'mv';
 const COMPRESS = 'compress';
 const DECOMPRESS = 'decompress';
 
-export { LS, UP, CD, HELP, HASH, CAT, ADD, RM, RN, CP, MV, COMPRESS, DECOMPRESS};
+export { LS, UP, EXIT, CD, HELP, HASH, CAT, ADD, RM, RN, CP, MV, COMPRESS, DECOMPRESS };
+
+const OS_EOL = 'os --EOL';
+const OS_CPUS = 'os --cpus';
+const OS_HOMEDIR = 'os --homedir';
+const OS_USERNAME = 'os --username';
+const OS_ARCHITECTURE = 'os --architecture';
+export { OS_EOL, OS_CPUS, OS_HOMEDIR, OS_USERNAME, OS_ARCHITECTURE }

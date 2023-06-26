@@ -1,27 +1,21 @@
-import {EOL,cpus,homedir,userInfo, arch} from "os";
-import { currDir } from "../../utils/currentDir.js";
+import { EOL, cpus, homedir, userInfo, arch } from "os";
 
-export const osEOL = () => {
+export const osEOL = async () => {
    console.log(JSON.stringify(EOL));
-   currDir();
-}
+};
 
-export const cpuInfo = () => {
+export const cpuInfo = async () => {
    console.table(cpus(), ["model", "speed"]);
-   currDir();
-}
+};
 
-export const homeDirectory = () => {
+export const homeDirectory = async () => {
    console.log(JSON.stringify(homedir()));
-   currDir();
-}
+};
 
-export const userName = () => {
+export const userName = async () => {
    console.log(userInfo().username);
-   currDir();
-}
+};
 
-export const architecture = () => {
+export const architecture = async () => {
    console.log(arch());
-   currDir();
-}
+};

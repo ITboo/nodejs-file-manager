@@ -21,6 +21,10 @@ export const runCommand = async (command) => {
             await COMMAND.cd();
             break;
 
+        case CASE.EXIT:
+            await COMMAND.exit();
+            break;
+
         case CASE.HASH:
             await COMMAND.hash();
             break;
@@ -57,7 +61,31 @@ export const runCommand = async (command) => {
             await COMMAND.decompress();
             break;
 
-        //TODO OS commands
-    }
+        case CASE.OS_EOL:
+            await COMMAND.osEOL();
+            break;
 
+        case CASE.OS_CPUS:
+            await COMMAND.cpuInfo();
+            break;
+
+        case CASE.OS_HOMEDIR:
+            await COMMAND.homeDirectory();
+            break;
+
+        case CASE.OS_USERNAME:
+            await COMMAND.userName();
+            break;
+
+        case CASE.OS_ARCHITECTURE:
+            await COMMAND.architecture();
+            break;
+
+        default: {
+            console.log(
+                `No such command "${commandName}". Type "help" to see all available commands.`
+            );
+            break;
+        };
+    };
 };
