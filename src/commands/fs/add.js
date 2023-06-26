@@ -1,5 +1,6 @@
 import { writeFile } from 'fs/promises';
 import { getAbsPath } from '../../utils/pathHelp.js';
+import {add_success} from '../../common/messages.js'
 
 export const add = async (command) => {
     const filePath = command.arguments[0];
@@ -8,5 +9,6 @@ export const add = async (command) => {
     await writeFile(absFilePath, '', {
         flag: 'ax'
     });
+    console.log(add_success);
 };
 

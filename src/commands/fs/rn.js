@@ -1,5 +1,6 @@
 import { rename } from 'fs/promises';
 import { getAbsPath } from '../../utils/pathHelp.js';
+import { rn_success } from '../../common/messages.js';
 
 export const rn = async (command) => {
     const fileName = command.arguments[0];
@@ -8,4 +9,5 @@ export const rn = async (command) => {
     const newFilePath = await getAbsPath(newName);
 
     await rename(filePath, newFilePath);
+    console.log(rn_success);
 };

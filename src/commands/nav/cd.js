@@ -1,7 +1,5 @@
-import os from 'os';
 import path from 'path';
 import { doesExist } from '../../utils/asserts.js';
-import { errorMsg } from '../../utils/error.js';
 
 export const cd = async (cwd, paths) => {
   try {

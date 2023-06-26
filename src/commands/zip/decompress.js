@@ -3,6 +3,7 @@ import { pipeline } from 'stream';
 import { createBrotliDecompress } from 'zlib';
 import { createReadStream, createWriteStream } from 'fs';
 import { getAbsPath } from '../../utils/pathHelp.js';
+import { decompress_success } from '../../common/messages.js';
 
 export const decompress = async (command) => {
     const fileToDecompress = command.arguments[0];
@@ -11,6 +12,7 @@ export const decompress = async (command) => {
     const decompressedFilePath = await getAbsPath(decompressedFile);
 
     await brotliAlg(fileToDecompressPath, decompressedFilePath);
+    console.log(decompress_success);
 }
 
 const brotliAlg = async (input, output) => {
@@ -19,5 +21,5 @@ const brotliAlg = async (input, output) => {
     const src = createReadStream(input);
     const dest = createWriteStream(output);
 
-    await promisifiedPipeline(src, brotli, dest);
+    await promisified(src, brotli, dest);
 };

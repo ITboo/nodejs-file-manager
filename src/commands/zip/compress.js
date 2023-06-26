@@ -3,6 +3,7 @@ import { pipeline } from 'stream';
 import { createBrotliCompress } from 'zlib';
 import { createReadStream, createWriteStream } from 'fs';
 import { getAbsPath } from '../../utils/pathHelp.js';
+import { compress_success } from '../../common/messages.js';
 
 export const compress = async (command) => {
     const fileToCompress = command.arguments[0];
@@ -11,6 +12,7 @@ export const compress = async (command) => {
     const compressedFilePath = await getAbsPath(compressedFile);
 
     await brotliAlg(fileToCompressPath, compressedFilePath);
+    console.log (compress_success)
 }
 
 const brotliAlg = async (input, output) => {

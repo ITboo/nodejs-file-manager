@@ -26,7 +26,7 @@ export const runCommand = async (command) => {
             break;
 
         case CASE.HASH:
-            await COMMAND.hash(command);
+            await COMMAND.calculateHash(command);
             break;
 
         case CASE.CAT:
@@ -42,7 +42,7 @@ export const runCommand = async (command) => {
             break;
 
         case CASE.RM:
-            await COMMAND.rm(command);
+            await COMMAND.remove(command);
             break;
 
         case CASE.CP:

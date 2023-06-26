@@ -1,4 +1,5 @@
-import { createReadStream } from 'fs/promises';
+import { createReadStream } from 'fs';
+import { stdout} from 'process';
 import { getAbsPath } from '../../utils/pathHelp.js';
 
 export const cat = async (command) => {
