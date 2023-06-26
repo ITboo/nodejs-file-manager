@@ -1,8 +1,8 @@
 import { createInterface } from 'node:readline/promises';
 import { sayHi, sayBye } from './src/utils/greeting.js';
 import { currDir } from './src/utils/currentDir.js';
-import { parseCommand } from './src/handlers/commandParser.js';
-import { runCommand } from './src/handlers/commandHandler.js';
+import { parseCommand } from './src/commands/commandParser.js';
+import { runCommand } from './src/commands/commandHandler.js';
 
 const rl = createInterface({
   input: process.stdin,

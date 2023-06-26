@@ -18,7 +18,7 @@ export const runCommand = async (command) => {
             break;
 
         case CASE.CD:
-            await COMMAND.cd();
+            await COMMAND.cd(command);
             break;
 
         case CASE.EXIT:
@@ -26,59 +26,59 @@ export const runCommand = async (command) => {
             break;
 
         case CASE.HASH:
-            await COMMAND.hash();
+            await COMMAND.hash(command);
             break;
 
         case CASE.CAT:
-            await COMMAND.cat();
+            await COMMAND.cat(command);
             break;
 
         case CASE.ADD:
-            await COMMAND.add();
+            await COMMAND.add(command);
             break;
 
         case CASE.RN:
-            await COMMAND.rn();
+            await COMMAND.rn(command);
             break;
 
         case CASE.RM:
-            await COMMAND.rm();
+            await COMMAND.rm(command);
             break;
 
         case CASE.CP:
-            await COMMAND.cp();
+            await COMMAND.cp(command);
             break;
 
         case CASE.MV:
-            await COMMAND.mv();
+            await COMMAND.mv(command);
             break;
 
         case CASE.COMPRESS:
-            await COMMAND.compress();
+            await COMMAND.compress(command);
             break;
 
         case CASE.DECOMPRESS:
-            await COMMAND.decompress();
+            await COMMAND.decompress(command);
             break;
 
         case CASE.OS_EOL:
-            await COMMAND.osEOL();
+            await COMMAND.osEOL(command);
             break;
 
         case CASE.OS_CPUS:
-            await COMMAND.cpuInfo();
+            await COMMAND.cpuInfo(command);
             break;
 
         case CASE.OS_HOMEDIR:
-            await COMMAND.homeDirectory();
+            await COMMAND.homeDirectory(command);
             break;
 
         case CASE.OS_USERNAME:
-            await COMMAND.userName();
+            await COMMAND.userName(command);
             break;
 
         case CASE.OS_ARCHITECTURE:
-            await COMMAND.architecture();
+            await COMMAND.architecture(command);
             break;
 
         default: {
