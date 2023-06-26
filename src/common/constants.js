@@ -34,9 +34,4 @@ const DECOMPRESS = 'decompress';
 
 export { LS, UP, EXIT, CD, HELP, HASH, CAT, ADD, RM, RN, CP, MV, COMPRESS, DECOMPRESS };
 
-const OS_EOL = 'os --EOL';
-const OS_CPUS = 'os --cpus';
-const OS_HOMEDIR = 'os --homedir';
-const OS_USERNAME = 'os --username';
-const OS_ARCHITECTURE = 'os --architecture';
-export { OS_EOL, OS_CPUS, OS_HOMEDIR, OS_USERNAME, OS_ARCHITECTURE }
+export const OS = 'os';

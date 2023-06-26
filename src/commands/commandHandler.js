@@ -61,25 +61,28 @@ export const runCommand = async (command) => {
             await COMMAND.decompress(command);
             break;
 
-        case CASE.OS_EOL:
-            await COMMAND.osEOL(command);
-            break;
-
-        case CASE.OS_CPUS:
-            await COMMAND.cpuInfo(command);
-            break;
-
-        case CASE.OS_HOMEDIR:
-            await COMMAND.homeDirectory(command);
-            break;
-
-        case CASE.OS_USERNAME:
-            await COMMAND.userName(command);
-            break;
-
-        case CASE.OS_ARCHITECTURE:
-            await COMMAND.architecture(command);
-            break;
+        /* case CASE.OS_EOL:
+             await COMMAND.osEOL(command);
+             break;
+ 
+         case CASE.OS_CPUS:
+             await COMMAND.cpuInfo(command);
+             break;
+ 
+         case CASE.OS_HOMEDIR:
+             await COMMAND.homeDirectory(command);
+             break;
+ 
+         case CASE.OS_USERNAME:
+             await COMMAND.userName(command);
+             break;
+ 
+         case CASE.OS_ARCHITECTURE:
+             await COMMAND.architecture(command);
+             break;*/
+        case CASE.OS:
+            await COMMAND.os(command)
+            break
 
         default: {
             console.log(

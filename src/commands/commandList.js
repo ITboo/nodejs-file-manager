@@ -11,13 +11,7 @@ export { cp } from './fs/cp.js';
 export { mv } from './fs/mv.js';
 export { remove } from './fs/rm.js';
 //OS
-export {
-    osEOL,
-    cpuInfo,
-    homeDirectory,
-    userName,
-    architecture
-} from './os/os.js';
+export { os } from './os/os.js';
 //HASH
 export { calculateHash } from './hash/hash.js';
 //ZIP
