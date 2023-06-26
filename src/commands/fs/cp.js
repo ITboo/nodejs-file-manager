@@ -1,6 +1,7 @@
 import { createReadStream, createWriteStream } from 'fs';
 import { basename, join } from 'path';
 import { getAbsPath } from '../../utils/pathHelp.js';
+import { errorMsg } from '../../utils/error.js';
 
 export const cp = async (command) => {
     const fileToCopy = command.arguments[0];
@@ -9,11 +10,11 @@ export const cp = async (command) => {
     const copyPath = await getAbsPath(copy);
 
     const baseName = basename(fileToCopy);
-    const absoluteCopiedFilePath = join(copyPath, baseName);
+    const pathToCopy = join(copyPath, baseName);
 
     return new Promise((resolve, reject) => {
         const readStream = createReadStream(fileToCopyPath);
-        const writeStream = createWriteStream(copyPath);
+        const writeStream = createWriteStream(pathToCopy);
 
         readStream.on('data', (chunk) => {
             writeStream.write(chunk);
@@ -24,7 +25,7 @@ export const cp = async (command) => {
         });
 
         readStream.on('error', (error) => {
-            reject(error);
+            reject();
         })
     });
 };
