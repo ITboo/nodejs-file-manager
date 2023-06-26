@@ -1,19 +1,13 @@
-import path from 'path';
-import { doesExist } from '../../utils/asserts.js';
+import { errorMsg } from '../../utils/error.js';
+import { getAbsPath } from '../../utils/pathHelp.js';
 
-export const cd = async (cwd, paths) => {
-  try {
-    const newCwd = path.join(cwd, paths.join(' '));
-    const pathDoesExist = await doesExist(newCwd);
-    if (pathDoesExist) {
-      process.chdir(newCwd);
-      return newCwd;
-    } else {
-      console.log(`No such directory ${newCwd} exists.`);
-      return cwd;
-    }
-  } catch (error) {
-  console.log(error)
+export const cd = async (command) => {
+  const newPath = command.arguments[0];
+  const absNewPath = await getAbsPath(newPath);
+  if (absNewPath) {
+    process.chdir(absNewPath);
+    return absNewPath;
+  } else {
+    errorMsg();
   }
-
 };
