@@ -1,5 +1,6 @@
 import * as COMMAND from './commandList.js';
 import * as CASE from '../common/constants.js'
+import { consoleColors } from '../utils/consoleColors.js';
 
 export const runCommand = async (command) => {
     const commandName = command.name;
@@ -66,7 +67,7 @@ export const runCommand = async (command) => {
             break
 
         default: {
-            console.log(
+            console.log(consoleColors.red,
                 `No such command "${commandName}". Type "help" to see all available commands.`
             );
             break;

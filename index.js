@@ -3,6 +3,7 @@ import { sayHi, sayBye } from './src/utils/greeting.js';
 import { currDir } from './src/utils/currentDir.js';
 import { parseCommand } from './src/commands/commandParser.js';
 import { runCommand } from './src/commands/commandHandler.js';
+import { errorMsg } from './src/utils/error.js';
 
 const rl = createInterface({
   input: process.stdin,
@@ -21,7 +22,7 @@ const app = async () => {
     try {
       await runCommand(command);
     } catch (err) {
-      console.log(err)
+      errorMsg()
     }
     await currDir();
     rl.prompt();
