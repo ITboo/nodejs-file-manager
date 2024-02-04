@@ -1,4 +1,5 @@
 import { EOL, cpus, homedir, userInfo, arch } from "os";
+import { OPERATION_FAILED } from "../../common/messages";
 
 const osEOL = '--EOL';
 const CPUS = '--cpus';
@@ -6,8 +7,8 @@ const HOMEDIR = '--homedir';
 const USERNAME = '--username';
 const ARCHITECTURE = '--architecture';
 
-export const os = async (command) => {
-   switch (command.arguments[0]) {
+export const os = async (param) => {
+   switch (param) {
       case osEOL:
          console.log(JSON.stringify(EOL));
 
@@ -17,7 +18,7 @@ export const os = async (command) => {
 
          break;
       case HOMEDIR:
-         console.log(JSON.stringify(homedir()));
+         console.log(homedir());
 
          break;
       case USERNAME:
@@ -29,7 +30,7 @@ export const os = async (command) => {
 
          break;
       default:
-         console.log('Operation failed. Make sure you put proper command')
+         console.log(OPERATION_FAILED);
    }
 
 };
