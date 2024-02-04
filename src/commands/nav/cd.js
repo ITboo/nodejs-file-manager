@@ -1,13 +1,6 @@
-import { errorMsg } from '../../utils/error.js';
-import { getAbsPath } from '../../utils/pathHelp.js';
+import { resolve } from 'path';
+import { chdir, cwd } from 'process';
 
-export const cd = async (command) => {
-  const newPath = command.arguments[0];
-  const absNewPath = await getAbsPath(newPath);
-  if (absNewPath) {
-    process.chdir(absNewPath);
-    return absNewPath;
-  } else {
-    errorMsg();
-  }
+export const cd = (path) => {
+  chdir(resolve(cwd(), path));
 };

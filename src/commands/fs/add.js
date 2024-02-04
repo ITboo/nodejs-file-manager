@@ -1,14 +1,8 @@
 import { writeFile } from 'fs/promises';
-import { getAbsPath } from '../../utils/pathHelp.js';
-import {add_success} from '../../common/messages.js'
+import { resolve } from 'path';
+import { cwd } from 'process';
 
-export const add = async (command) => {
-    const filePath = command.arguments[0];
-    const absFilePath = await getAbsPath(filePath);
-
-    await writeFile(absFilePath, '', {
-        flag: 'ax'
-    });
-    console.log(add_success);
+export const add = async (path) => {
+  const filePath = resolve(cwd(), path);
+  await writeFile(filePath, '', { flag: 'wx' });
 };
-

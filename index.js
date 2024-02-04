@@ -1,41 +1,4 @@
-import { createInterface } from 'node:readline/promises';
-import { sayHi, sayBye } from './src/utils/greeting.js';
-import { currDir } from './src/utils/currentDir.js';
-import { parseCommand } from './src/commands/commandParser.js';
-import { runCommand } from './src/commands/commandHandler.js';
-import { errorMsg } from './src/utils/error.js';
+import App from './src/app/app.js';
 
-const rl = createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-const app = async () => {
-  await sayHi();
-  await currDir();
-
-  rl.prompt();
-
-  rl.on('line', async (input) => {
-    const trimmed = input.trim();
-    const command = await parseCommand(trimmed);
-    try {
-      await runCommand(command);
-    } catch (err) {
-      errorMsg()
-    }
-    await currDir();
-    rl.prompt();
-  });
-
-  rl.on('SIGINT', async () => {
-    rl.close();
-  });
-
-  rl.on('close', async () => {
-    await sayBye();
-    process.exit(0);
-  });
-};
-
-await app();
+const app = new App();
+app.start();

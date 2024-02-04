@@ -33,27 +33,3 @@ export const os = async (command) => {
    }
 
 };
-
-
-
-
-/*
-export const osEOL = async (command) => {
-   console.log(JSON.stringify(EOL));
-};
-
-export const cpuInfo = async (command) => {
-   console.table(cpus(), ["model", "speed"]);
-};
-
-export const homeDirectory = async (command) => {
-   console.log(JSON.stringify(homedir()));
-};
-
-export const userName = async (command) => {
-   console.log(userInfo().username);
-};
-
-export const architecture = async (command) => {
-   console.log(arch());
-};*/
