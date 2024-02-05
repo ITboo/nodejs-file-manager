@@ -7,5 +7,5 @@ import { rm_success } from '../../common/messages.js';
 export const remove = async (path) => {
     const filePath = resolve(cwd(), path);
     await rmFile(filePath);
-    console.log(rm_success);
+
 };

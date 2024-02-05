@@ -5,8 +5,8 @@ export const BYE_MSG = 'goodbye!';
 export const CURRENT_DIR = 'You are currently in ';
 
 export const OPERATION_FAILED = 'Operation failed';
-export const INVALID_INPUT = 'Invalid input'
-
+export const INVALID_INPUT = 'Invalid input';
+export const INVALID_PARAM = 'Invalid param';
 
 export const add_success = 'File has been successfully created!';
 export const rm_success = 'File has been successfully removed!';

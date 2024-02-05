@@ -14,8 +14,7 @@ export { os } from './os/os.js';
 //HASH
 export { calculateHash } from './hash/hash.js';
 //ZIP
-export { compress } from './zip/compress.js';
-export { decompress } from './zip/decompress.js';
+export { brotli } from './zip/brotli.js';
 //HELP
 export { printHelp } from './help/help.js';
 

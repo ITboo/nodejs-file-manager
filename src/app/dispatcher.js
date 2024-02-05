@@ -1,12 +1,10 @@
 import * as COMMAND from '../commands/commandList.js'
-import { BYE_MSG, OPERATION_FAILED, THANK_MSG } from '../common/messages.js';
+import { BYE_MSG, OPERATION_FAILED, THANK_MSG, compress_success, decompress_success } from '../common/messages.js';
 import { consoleColors } from '../utils/consoleColors.js';
 import { parseInput } from './parser.js';
 
-
 export const handleCommands = async (line) => {
     const { command, params } = parseInput(line);
-    // ! refactor switch-case
     switch (command) {
         case '.exit':
             console.log(consoleColors.yellow, `${THANK_MSG}${BYE_MSG}`);
@@ -48,10 +46,12 @@ export const handleCommands = async (line) => {
             await COMMAND.calculateHash(...params);
             break;
         case 'compress':
-            await COMMAND.compress(...params);
+            await COMMAND.brotli('compress', ...params);
+            console.log(consoleColors.green, compress_success)
             break;
         case 'decompress':
-            await COMMAND.decompress(...params);
+            await COMMAND.brotli('decompress', ...params);
+            console.log(consoleColors.green, decompress_success)
             break;
         default:
             console.log(consoleColors.red, OPERATION_FAILED);
