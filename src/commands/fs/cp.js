@@ -1,21 +1,21 @@
 import { createReadStream, createWriteStream } from 'fs';
-import { resolve as pathResolve, basename } from 'path';
+import { resolve, basename } from 'path';
 
 export const cp = async (path, newPath) => {
-   const fileToCopyPath = pathResolve(process.cwd(), path);
-   const fileName = basename(fileToCopyPath);
-   const dirToWritePath = pathResolve(process.cwd(), newPath);
-   const fileToWritePath = pathResolve(dirToWritePath, fileName);
+   const srcPath = resolve(process.cwd(), path);
+   const fileName = basename(srcPath);
+   const destPath = resolve(process.cwd(), newPath);
+   const fileToWritePath = resolve(destPath, fileName);
    try {
       await new Promise(async (res, rej) => {
-         const fileToCopy = createReadStream(fileToCopyPath, { encoding: 'utf8' });
-         const fileToWrite = createWriteStream(fileToWritePath, {
+         const file = createReadStream(srcPath, { encoding: 'utf8' });
+         const copy = createWriteStream(fileToWritePath, {
             flags: 'wx',
          });
 
-         fileToCopy.pipe(fileToWrite);
-         fileToCopy.on('error', rej);
-         fileToCopy.on('end', res);
+         file.pipe(copy);
+         file.on('error', rej);
+         file.on('end', res);
       });
    } catch (error) {
       throw error;

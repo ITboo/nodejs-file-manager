@@ -3,14 +3,14 @@ import { resolve as resolvePath } from 'path';
 import { cwd } from 'process';
 
 export const cat = async (path) => {
-   await new Promise((resolve, reject) => {
+   await new Promise((res, rej) => {
       const filePath = resolvePath(cwd(), path);
-      const fileContent = createReadStream(filePath, { encoding: 'utf8' });
+      const stream = createReadStream(filePath, { encoding: 'utf8' });
   
-      fileContent.on('data', (chunk) => {
+      stream.on('data', (chunk) => {
         console.log(chunk);
       });
-      fileContent.on('error', reject);
-      fileContent.on('end', resolve);
+      stream.on('error', rej);
+      stream.on('end', res);
     });
 };
