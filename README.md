@@ -29,9 +29,9 @@ Default username is 'UserName'
 5. To exit the program type ```.exit``` or press ```Ctrl+C```
 
 
-- ### COMMAND LIST
+ ### COMMAND LIST
 
-## Navigation
+- ## Navigation
 Go to dedicated folder from current directory
 
 ```cd path_to_directory```
