@@ -14,21 +14,38 @@ How to use:
 
 ```https://github.com/ITboo/nodejs-file-manager.git```
 
-2. Switch branch to 'dev'
+2. Go to task repo
 
-```git switch dev```
+```cd nodejs-file-manager```
 
 3. Start the program by running:
 
 ```npm run start -- --username=your_username```
 
-4. Type help to see command list*
+Default username is 'UserName'
 
-5. To exit the programm you are to type .exit or press Ctrl+C
+4. Type ```help``` to see command list (optional)
+
+5. To exit the program type ```.exit``` or press ```Ctrl+C```
 
 
+- ### COMMAND LIST
 
-### COMMAND LIST
+## Navigation
+Go to dedicated folder from current directory
+
+```cd path_to_directory```
+
+Example: 
+``` cd d: ```
+
+Go upper from current directory
+
+```up```
+
+Print in console list of all files and folders in current directory
+
+```ls```
 
 - ## Basic operations with files
 Read file and print it's content in console (should be done using Readable stream):
@@ -91,3 +108,9 @@ Compress file
 Decompress file 
 
 ```decompress path_to_file path_to_destination```
+
+Example:
+
+```compress test.txt test```
+
+```decompress ./test.txt.br test```
