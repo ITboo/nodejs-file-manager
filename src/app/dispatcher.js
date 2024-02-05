@@ -1,4 +1,6 @@
 import * as COMMAND from '../commands/commandList.js'
+import { BYE_MSG, OPERATION_FAILED, THANK_MSG } from '../common/messages.js';
+import { consoleColors } from '../utils/consoleColors.js';
 import { parseInput } from './parser.js';
 
 
@@ -6,6 +8,9 @@ export const handleCommands = async (line) => {
     const { command, params } = parseInput(line);
     // ! refactor switch-case
     switch (command) {
+        case '.exit':
+            console.log(consoleColors.yellow, `${THANK_MSG}${BYE_MSG}`);
+            process.exit(0);
         case 'help':
             await COMMAND.printHelp();
             break;
@@ -48,5 +53,7 @@ export const handleCommands = async (line) => {
         case 'decompress':
             await COMMAND.decompress(...params);
             break;
+        default:
+            console.log(consoleColors.red, OPERATION_FAILED);
     }
 }

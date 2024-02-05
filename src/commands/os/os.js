@@ -1,5 +1,5 @@
 import { EOL, cpus, homedir, userInfo, arch } from "os";
-import { OPERATION_FAILED } from "../../common/messages";
+import { OPERATION_FAILED } from "../../common/messages.js";
 
 const osEOL = '--EOL';
 const CPUS = '--cpus';

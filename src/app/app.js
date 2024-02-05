@@ -29,6 +29,7 @@ class App {
 
         this.printHello = function () {
             console.log(consoleColors.yellow, `${msg.WELCOME_MSG}${this.userName}!${EOL}${msg.HELP_MSG}`);
+            console.log(consoleColors.gray, `${EOL}${msg.CURRENT_DIR}${this.dir}${EOL}`);
 
         };
         this.printBye = function () {
